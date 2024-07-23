@@ -1,0 +1,16 @@
+{
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"start:client": "node --env-file ./.env --enable-source-maps --disable-proto=throw --disallow-code-generation-from-strings ./build/main.js --use client",
+		"start:server": "node --env-file ./.env --enable-source-maps --disable-proto=throw --disallow-code-generation-from-strings ./build/main.js --use server",
+		"build": "tsc -p ./tsconfig.json",
+		"build:watch": "rimraf ./build && tsc -p ./tsconfig.json --watch --preserveWatchOutput",
+		"clean": "rimraf ./build"
+	},
+	"devDependencies": {
+		"@types/node": "^20.14.2",
+		"rimraf": "^6.0.1",
+		"typescript": "^5.4.5"
+	}
+}
