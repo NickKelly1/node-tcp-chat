@@ -185,7 +185,9 @@ function runServer(host: string, port: number) {
 		conn.on("error", onConnError)
 	}
 	function onServerClose(this: net.Server) {
+		clearTimeout(serverListeningTimeout)
 		log("Server closed")
+		process.exit(1)
 	}
 	function onServerError(this: net.Server, err: Error) {
 		log(`Server error   \x1b[32merr\x1b[0m=${err.message}`)
